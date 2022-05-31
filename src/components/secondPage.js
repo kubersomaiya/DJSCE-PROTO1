@@ -3,6 +3,7 @@ import {db} from "./firebaseConfig"
 import {
      collection,
      addDoc,
+     setDoc,doc
    }from 'firebase/firestore'
 
 
@@ -133,10 +134,10 @@ export default function SecondPage() {
 
 
 const handleClick = async (e) => {
-  try {
-    const details = collection(db , 'Details')
-    await  addDoc(details , {
-         SAPID : Number(SAPID),
+          try {
+               const details = collection(db , 'Details')
+await setDoc(doc(db, "Details", SAPID), {
+          SAPID : Number(SAPID),
       firstName: firstName,
       middleNname : middleName,
      surname : surname,
@@ -147,7 +148,7 @@ const handleClick = async (e) => {
      address : address,
 
      educationGap : educationGap,
-      tenthPercent : Number(tenthPercent),
+     tenthPercent : Number(tenthPercent),
       twelfthPercent : Number(twelfthPercent),
       JEE : Number(JEE),
       CET : Number(CET),
@@ -157,14 +158,18 @@ const handleClick = async (e) => {
       SEM4 : Number(SEM4),
       SEM5 : Number(SEM5),
       SEM6 : Number(SEM6),
-
-  });
-  console.log("Input entered")
+      
+     });
+     //   });
+     console.log("Input entered")
 } catch (error) {
-  console.log(error.message)
-}
+     console.log(error.message)
+
 alert("Form Submitted Successfuly")
 }
+}
+
+const [toggle, setToggle] = useState(false)
   return (
     <>
     <br />

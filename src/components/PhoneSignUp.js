@@ -73,9 +73,6 @@ const PhoneSignUp = () => {
 
         <div id="recaptcha-container" />
         <div>
-        <Link to="/admin">
-        <button type="submit" className='otherBtn'>Are you Admin?</button>
-        </Link>
         <Link to="/"/>
         <button type="submit" className='login'>Send OTP</button>
         </div>
